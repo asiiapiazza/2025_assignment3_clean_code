@@ -12,8 +12,8 @@ import com.bbn.openmap.proj.Projection;
 import com.bbn.openmap.util.Debug;
 
 /**
- * Consente di ridimensionare e riposizionare la mappa principale
- * in base alle interazioni dell'utente con la mappa di panoramica.
+ * Consente di ridimensionare e riposizionare la mappa principale in base alle
+ * interazioni dell'utente con la mappa di panoramica.
  */
 public class DefaultOverviewMouseMode extends NavMouseMode2 {
 
@@ -58,16 +58,15 @@ public class DefaultOverviewMouseMode extends NavMouseMode2 {
       int deltaY = Math.abs(point2.y - point1.y);
 
       if (isClickOrSmallDrag(deltaX, deltaY)) {
-         // se è un click o un drag piccolo, recentra la mappa
          recenterMap(event.getPoint());
       } else {
-         // se il drag è significativo, zoomma sulla mappa
          performZoom(deltaX, deltaY);
       }
    }
 
    protected Point getRatioPoint(MapBean map, Point pt1, Point pt2) {
-      return ProjMath.getRatioPoint(overviewMapHandler.getSourceMap().getProjection(), pt1, pt2);
+      return ProjMath.getRatioPoint(overviewMapHandler
+            .getSourceMap().getProjection(), pt1, pt2);
    }
 
    private boolean isClickOrSmallDrag(int dx, int dy) {

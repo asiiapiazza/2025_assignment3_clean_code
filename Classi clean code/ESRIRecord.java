@@ -7,8 +7,8 @@ import com.bbn.openmap.omGraphics.OMGeometryList;
 import com.bbn.openmap.omGraphics.OMGraphicList;
 
 /**
- * Classe base per tutte le classi di record di forma. Memorizza il
- * numero di record e la lunghezza del contenuto di un record.
+ * Classe base per tutte le classi di record di forma. Memorizza il numero di
+ * record e la lunghezza del contenuto di un record.
  */
 public abstract class ESRIRecord extends ShapeUtils {
 

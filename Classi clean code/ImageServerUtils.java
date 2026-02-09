@@ -19,7 +19,6 @@ import com.bbn.openmap.util.PropUtils;
  */
 public class ImageServerUtils implements ImageServerConstants {
 
-    
     public static Proj createOMProjection(Properties props, Projection defaultProj) {
 
         float scale = PropUtils.floatFromProperties(props, SCALE, defaultProj.getScale());
@@ -41,7 +40,6 @@ public class ImageServerUtils implements ImageServerConstants {
 
     private static Point2D calculateCenterPoint(Properties props, Projection defaultProj) {
         Point2D defaultCenter = defaultProj.getCenter();
-
         float longitude = PropUtils.floatFromProperties(props, LON, (float) defaultCenter.getX());
         float latitude = PropUtils.floatFromProperties(props, LAT, (float) defaultCenter.getY());
 
@@ -53,7 +51,8 @@ public class ImageServerUtils implements ImageServerConstants {
         String projType = props.getProperty(PROJTYPE);
 
         if (projType != null) {
-            Class<? extends Projection> loadedClass = ProjectionFactory.loadDefaultProjections()
+            Class<? extends Projection> loadedClass = ProjectionFactory
+                    .loadDefaultProjections()
                     .getProjClassForName(projType);
             if (loadedClass != null) {
                 return loadedClass;
@@ -62,7 +61,8 @@ public class ImageServerUtils implements ImageServerConstants {
         return defaultProj.getClass();
     }
 
-    private static void logProjectionDebug(Class<?> projClass, int height, int width, Point2D center, float scale) {
+    private static void logProjectionDebug(Class<?> projClass, int height,
+            int width, Point2D center, float scale) {
         if (Debug.debugging("imageserver")) {
             Debug.output("ImageServerUtils.createOMProjection: projection "
                     + projClass.getName() + ", with HEIGHT = " + height

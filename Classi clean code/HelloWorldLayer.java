@@ -38,7 +38,9 @@ public class HelloWorldLayer extends Layer {
 
 	private Properties loadProperties() {
 		Properties props = new Properties();
-		try (InputStream input = getClass().getClassLoader().getResourceAsStream(COORD_FILE)) {
+		try (InputStream input = getClass()
+				.getClassLoader()
+				.getResourceAsStream(COORD_FILE)) {
 			if (input != null) {
 				props.load(input);
 			}
@@ -58,7 +60,8 @@ public class HelloWorldLayer extends Layer {
 	}
 
 	private void addPolygonToLayer(double[] coordinates) {
-		OMPoly poly = new OMPoly(coordinates, OMGraphic.DECIMAL_DEGREES, OMGraphic.LINETYPE_RHUMB, 32);
+		OMPoly poly = new OMPoly(coordinates, OMGraphic.DECIMAL_DEGREES,
+				OMGraphic.LINETYPE_RHUMB, 32);
 		poly.setLinePaint(Color.black);
 		poly.setFillPaint(Color.green);
 		graphics.add(poly);
