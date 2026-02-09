@@ -71,7 +71,7 @@ public class AboutMenuItem extends JMenuItem implements ActionListener {
     }
 
     private String buildCopyrightText() {
-        StringBuffer copyrightBuilder = new StringBuffer(MapBean.getCopyrightMessage())
+        StringBuffer sb = new StringBuffer(MapBean.getCopyrightMessage())
                 .append(System.lineSeparator())
                 .append(System.lineSeparator())
                 .append("Version ")
@@ -79,11 +79,11 @@ public class AboutMenuItem extends JMenuItem implements ActionListener {
 
         String buildDate = Environment.get(Environment.BuildDate);
         if (buildDate != null) {
-            copyrightBuilder.append(System.lineSeparator())
+            sb.append(System.lineSeparator())
                     .append("Build ")
                     .append(buildDate);
         }
-        return copyrightBuilder.toString();
+        return sb.toString();
     }
 
     private JScrollPane createScrollingTextArea(String content) {

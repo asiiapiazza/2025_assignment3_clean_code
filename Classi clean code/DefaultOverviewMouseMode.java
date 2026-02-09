@@ -58,8 +58,10 @@ public class DefaultOverviewMouseMode extends NavMouseMode2 {
       int deltaY = Math.abs(point2.y - point1.y);
 
       if (isClickOrSmallDrag(deltaX, deltaY)) {
+         // se è un click o un drag piccolo, recentra la mappa
          recenterMap(event.getPoint());
       } else {
+         // se il drag è significativo, zoomma sulla mappa
          performZoom(deltaX, deltaY);
       }
    }
